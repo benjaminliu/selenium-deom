@@ -21,7 +21,7 @@ mvn test
 
 or with
 ~~~
-mvn test mvn test -DsuiteXmlFile=config\testNG1.xml
+mvn test -DsuiteXmlFile=config\testNG1.xml
 ~~~
 
 when test finished,  you can check result at target\surefire-reports
