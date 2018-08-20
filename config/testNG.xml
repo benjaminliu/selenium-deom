@@ -9,7 +9,7 @@
         <!--<package name="com.test"/>-->
         <!--</packages>-->
         <classes>
-            <class name="com.test.scripts.IETest"></class>
+            <class name="com.test.scripts.ChromeTest1"></class>
         </classes>
     </test>
 

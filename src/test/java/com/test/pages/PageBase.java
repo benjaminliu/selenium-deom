@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
  */
 public abstract class PageBase {
 
+    public int TimeoutValue = 30;
+
     protected WebDriver driver;
 
     protected abstract void verify() throws Exception;

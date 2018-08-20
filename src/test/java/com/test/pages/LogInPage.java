@@ -1,47 +1,49 @@
 package com.test.pages;
 
+import com.test.utils.SysUtil;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
 /**
  * Created by ashley on 2018/5/13.
  */
-public class LogInPage extends PageBase{
+public class LogInPage extends PageBase {
 
     //Capture web elements
-    @FindBy(xpath = "...")
+    @FindBy(css = "input[placeholder=Email]")
     private WebElement userNameText;
 
-    @FindBy(xpath = "...")
+    @FindBy(css = "input[placeholder=Password]")
     private WebElement passwordText;
 
-    @FindBy(xpath = "...")
+    @FindBy(css = "input[type=button]")
     private WebElement loginButton;
 
-    @FindBy(xpath = "...")
-    private WebElement cancelButton;
-
     //Initial page elements
-    public LogInPage(WebDriver driver){
+    public LogInPage(WebDriver driver) {
         this.driver = driver;
-        PageFactory.initElements(driver, this);
+
+        //有超时等待时间
+        PageFactory.initElements(new AjaxElementLocatorFactory(driver, TimeoutValue), this);
     }
 
     // Action - input username and pwd, login, then go to homepage
-    public HomePage login(String userName, String pwd){
+    public HomePage login(String userName, String pwd) {
 
         //Input username and pwd
         userNameText.sendKeys(userName);
+        SysUtil.sleepSecond(1);
         passwordText.sendKeys(pwd);
+        SysUtil.sleepSecond(5);
 
         //Click login
         loginButton.click();
 
         //return homepage
         return new HomePage(driver);
-
     }
 
 
