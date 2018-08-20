@@ -19,7 +19,7 @@ public class LogInPage extends PageBase {
     @FindBy(css = "input[placeholder=Password]")
     private WebElement passwordText;
 
-    @FindBy(css = "input[type=button]")
+    @FindBy(className = "el-button--primary")
     private WebElement loginButton;
 
     //Initial page elements
@@ -37,10 +37,11 @@ public class LogInPage extends PageBase {
         userNameText.sendKeys(userName);
         SysUtil.sleepSecond(1);
         passwordText.sendKeys(pwd);
-        SysUtil.sleepSecond(5);
+        SysUtil.sleepSecond(3);
 
         //Click login
         loginButton.click();
+        SysUtil.sleepSecond(3);
 
         //return homepage
         return new HomePage(driver);
